@@ -7,7 +7,7 @@
 #              for resources. You can use terraform-labels to implement a strict naming
 #              convention.
 module "labels" {
-  source = "git::https://github.com/clouddrove/terraform-labels.git?ref=tags/0.12.0"
+  source = "git::https://github.com/zendad/terraform-labels?ref=master"
 
   name        = var.name
   application = var.application
@@ -31,7 +31,6 @@ resource "aws_vpc" "default" {
   lifecycle {
     # Ignore tags added by kubernetes
     ignore_changes = [
-      tags,
       tags["kubernetes.io"],
       tags["SubnetType"],
     ]
