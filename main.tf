@@ -12,7 +12,6 @@ module "labels" {
   name        = var.name
   application = var.application
   environment = var.environment
-  managedby   = var.managedby
   label_order = var.label_order
 }
 
@@ -27,6 +26,7 @@ resource "aws_vpc" "default" {
   enable_dns_support               = var.enable_dns_support
   enable_classiclink               = var.enable_classiclink
   enable_classiclink_dns_support   = var.enable_classiclink_dns_support
+  tags                             = module.labels.tags
   
   lifecycle {
     # Ignore tags added by kubernetes
