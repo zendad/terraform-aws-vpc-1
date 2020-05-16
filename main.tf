@@ -28,7 +28,6 @@ resource "aws_vpc" "default" {
   enable_classiclink               = var.enable_classiclink
   enable_classiclink_dns_support   = var.enable_classiclink_dns_support
   assign_generated_ipv6_cidr_block = true
-  tags                             = module.labels.tags
   lifecycle {
     # Ignore tags added by kubernetes
     ignore_changes = [
